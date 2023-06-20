@@ -1,0 +1,108 @@
+#ifndef SHELL_SIMPLE
+#define SHELL_SIMPLE
+
+/**###### environ var ######*/
+
+extern char **environ;
+
+/**##### MACROS ######*/
+
+#define BUFSIZE 1024
+#define DELIM " \t\r\n\a"
+#define PRINTER(c) (write(STDOUT_FILENO, c, _strlen(c)))
+
+/**###### LIBS USED ######*/
+
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <string.h>
+#include <sys/wait.h>
+#include <stdlib.h>
+#include <signal.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <linux/limits.h>
+
+/**###### STRING FUNCTION ######*/
+
+char *_strtok(char *str, const char *tok);
+unsigned int check_delim_func(char c, const char *str);
+char *_strncpy(char *dest, char *src, int n);
+int _strlen(char *s);
+int _putchar(char c);
+int _atoi(char *s);
+void _puts(char *str);
+int _strcmp(char *s1, char *s2);
+int _isalpha(int c);
+void array_rev(char *arr, int len);
+int intlen(int num);
+char *_itoa(unsigned int n);
+char *_strcat(char *dest, char *src);
+char *_strcpy(char *dest, char *src);
+char *_strchr(char *s, char c);
+int _strncmp(const char *s1, const char *s2, size_t n);
+char *_strdup(char *str);
+
+/**###### MEMORIE  MANGMENT ####*/
+
+void free_env_func(char **env);
+void *fill_an_array_func(void *a, int el, unsigned int len);
+char *_memcpy_func(char *dest, char *src, unsigned int n);
+void *_calloc_func(unsigned int size);
+void *_realloc_func(void *ptr, unsigned int old_size, unsigned int new_size);
+void free_all_func(char **input, char *line);
+
+/**###### INPUT Function ######*/
+
+void prompt_func(void);
+void signal_to_handel_func(int sig);
+char *_getline_func(void);
+
+/** ###### Command parser and extractor ###*/
+
+int path_cmd_func(char **line);
+char *_getenv_func(char *name);
+char **parse_cmd_func(char *cmd);
+int handle_builtin_func(char **cmd, int er);
+void read_file_func(char *filename, char **argv);
+char *build_func(char *token, char *value);
+int check_builtin(char **cmd);
+void creat_envi_func(char **envi);
+int check_cmd_func(char **tokens, char *line, int count, char **argv);
+void treat_file_func(char *line, int counter, FILE *fd, char **argv);
+void exit_bul_for_file_func(char **cmd, char *line, FILE *fd);
+
+/** ####BUL FUNC #####*/
+
+void hashtag_handle_func(char *buff);
+int history_func(char *input);
+int history_dis(char **cmd, int er);
+int dis_env(char **cmd, int er);
+int change_dir_func(char **cmd, int er);
+int display_help_func(char **cmd, int er);
+int echo_bul_func(char **cmd, int er);
+void exit_bul_func(char **cmd, char *input, char **argv, int c);
+int print_echo_func(char **cmd);
+
+/** ####error handle and Printer ####*/
+void print_number_func(unsigned int n);
+void print_number_in_func(int n);
+void print_error(char *line, int c, char **argv);
+void _prerror_func(char **argv, int c, char **cmd);
+
+
+/**
+ * struct bulltin - contain bultin to handle and function to excute
+ * @command: pointer to char
+ * @fun: fun to excute when bultin true
+ */
+
+typedef struct  bulltin
+{
+	char *command;
+	int (*fun)(char **line, int er);
+} bul_t;
+
+#endif

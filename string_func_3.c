@@ -4,6 +4,7 @@
  * _strcmp - Compare Two String
  * @s1:String 1
  * @s2:String 2
+ *
  * Return: 0 If Identical Otherwise How Much Diffrent
  */
 int _strcmp(char *s1, char *s2)
@@ -28,9 +29,11 @@ len2 = _strlen(s2);
 	}
 	return (cmp);
 }
+
 /**
  * _isalpha - Check if Alphabtic
  *@c: Character
+
  * Return: 1 If True 0 If Not
  */
 int _isalpha(int c)
@@ -44,9 +47,11 @@ else
 return (0);
 }
 }
+
 /**
  * _itoa - Convert Integer To Char
  * @n: Int To Convert
+ *
  * Return: Char Pointer
  */
 char *_itoa(unsigned int n)
@@ -70,10 +75,12 @@ char *_itoa(unsigned int n)
 	s[i + 1] = '\0';
 	return (s);
 }
+
 /**
  *  array_rev - Reverse Array
  * @arr:Array To Reverse
  * @len:Length Of Array
+ *
  * Return: Void(Reverse Array)
  */
 void array_rev(char *arr, int len)
@@ -88,9 +95,11 @@ void array_rev(char *arr, int len)
 		arr[(len - 1) - i] = tmp;
 	}
 }
+
 /**
  * intlen - Determine Length Of Int
  * @num: Given Int
+ *
  * Return: Length Of Int
  */
 int intlen(int num)

@@ -1,36 +1,40 @@
 #include "shell.h"
+
 /**
- * print_number -Print Unsigned Int Putchar
+ * print_number - Print Unsigned Int Putchar
  * @n: Unisigned Integer
+ *
  * Return: Void
  */
 void print_number(unsigned int n)
 {
-	unsigned int x = n;
+	unsigned int y = n;
 
-	if ((x / 10) > 0)
-		print_number(x / 10);
+	if ((y / 10) > 0)
+		print_number(y / 10);
 
-	_putchar(x % 10 + '0');
+	_putchar(y % 10 + '0');
 }
+
 /**
- * print_number_in -Print Number Putchar
+ * print_number_in - Print Number Putchar
  * @n:Integer
+ *
  * Return: void
  */
 void print_number_in(int n)
 {
-	unsigned int x = n;
+	unsigned int y = n;
 
 	if (n < 0)
 	{
 		_putchar('-');
-		x = -x;
+		y = -y;
 	}
-	if ((x / 10) > 0)
-		print_number(x / 10);
+	if ((y / 10) > 0)
+		print_number(y / 10);
 
-	_putchar(x % 10 + '0');
+	_putchar(y % 10 + '0');
 }
 
 /**
@@ -38,22 +42,24 @@ void print_number_in(int n)
  * @argv:Program Name
  * @c:Error Count
  * @cmd:Command
+ *
  * Return: Void
  */
 void _prerror(char **argv, int c, char **cmd)
 {
-	char *er = _itoa(c);
+	char *error = _itoa(c);
 
 	PRINTER(argv[0]);
 	PRINTER(": ");
-	PRINTER(er);
+	PRINTER(error);
 	PRINTER(": ");
 	PRINTER(cmd[0]);
 	PRINTER(": Illegal number: ");
 	PRINTER(cmd[1]);
 	PRINTER("\n");
-	free(er);
+	free(error);
 }
+
 /**
  * prompt - Display Shell Prompt
  */
@@ -61,6 +67,7 @@ void prompt(void)
 {
 	PRINTER("$ ");
 }
+
 /**
  * print_error - Display Error Based on Command and How Many Time Shell Looped
  * @input:User Input
@@ -70,13 +77,13 @@ void prompt(void)
  */
 void print_error(char *input, int counter, char **argv)
 {
-	char *er;
+	char *error;
 
 	PRINTER(argv[0]);
 	PRINTER(": ");
-	er = _itoa(counter);
-	PRINTER(er);
-	free(er);
+	error = _itoa(counter);
+	PRINTER(error);
+	free(error);
 	PRINTER(": ");
 	PRINTER(input);
 	PRINTER(": not found\n");

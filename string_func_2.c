@@ -11,11 +11,13 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
+
 /**
  * _strncpy - copie a string
  * @dest:char
  *  @src:char
  * @n:int
+ *
  * Return:char
  */
 
@@ -40,6 +42,7 @@ i = 0;
 /**
  * _strlen - lenght of string
  * @s:char
+ *
  * Return:int
  */
 
@@ -57,6 +60,7 @@ return (i);
 /**
  * _atoi - convert to a int
  * @s:string
+ *
  * Return:int
  */
 int _atoi(char *s)
@@ -82,6 +86,7 @@ int i, j, n, x;
 /**
  * _puts - print a string
  * @str:pointer char
+ *
  * return:void
  */
 void _puts(char *str)

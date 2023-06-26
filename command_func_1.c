@@ -4,6 +4,7 @@
  * handle_builtin - Handle Builtin Command
  * @cmd: Parsed Command
  * @er:statue of last Excute
+ *
  * Return: -1 Fail 0 Succes (Return :Excute Builtin)
  */
 
@@ -29,13 +30,14 @@ int handle_builtin(char **cmd, int er)
 	}
 	return (-1);
 }
+
 /**
  * check_cmd - Excute Simple Shell Command (Fork,Wait,Excute)
- *
  * @cmd:Parsed Command
  * @input: User Input
  * @c:Shell Excution Time Case of Command Not Found
  * @argv:Program Name
+ *
  * Return: 1 Case Command Null -1 Wrong Command 0 Command Excuted
  */
 int check_cmd(char **cmd, char *input, int c, char **argv)
@@ -74,14 +76,16 @@ int check_cmd(char **cmd, char *input, int c, char **argv)
 	wait(&status);
 	return (0);
 }
+
 /**
  * signal_to_handel - Handle ^C
- * @sig:Captured Signal
+ * @signal: Captured Signal
+ *
  * Return: Void
  */
-void signal_to_handel(int sig)
+void signal_to_handel(int signal)
 {
-	if (sig == SIGINT)
+	if (signal == SIGINT)
 	{
 		PRINTER("\n$ ");
 	}
@@ -91,6 +95,7 @@ void signal_to_handel(int sig)
  * read_file - Read Command From File
  * @filename:Filename
  * @argv:Program Name
+ *
  * Return: -1 or  0
  */
 
@@ -117,12 +122,14 @@ void read_file(char *filename, char **argv)
 	fclose(fp);
 	exit(0);
 }
+
 /**
  * treat_file - PARSE Check Command Fork Wait Excute in Line of File
  * @line: Line From A File
  * @counter:Error Counter
  * @fp:File Descriptor
  * @argv:Program Name
+ *
  * Return : Excute A line void
  */
 void treat_file(char *line, int counter, FILE *fp, char **argv)

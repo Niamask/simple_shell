@@ -4,6 +4,7 @@
  * history_dis - Display History Of User Input Simple Shell
  * @c:Parsed Command
  * @s:Statue Of Last Excute
+ *
  * Return: 0 Succes -1 Fail
  */
 int history_dis(__attribute__((unused))char **c, __attribute__((unused))int s)
@@ -13,7 +14,7 @@ int history_dis(__attribute__((unused))char **c, __attribute__((unused))int s)
 	char *line = NULL;
 	size_t len = 0;
 	int counter = 0;
-	char *er;
+	char *error;
 
 	fp = fopen(filename, "r");
 	if (fp == NULL)
@@ -23,9 +24,9 @@ int history_dis(__attribute__((unused))char **c, __attribute__((unused))int s)
 	while ((getline(&line, &len, fp)) != -1)
 	{
 		counter++;
-		er = _itoa(counter);
-		PRINTER(er);
-		free(er);
+		error = _itoa(counter);
+		PRINTER(error);
+		free(error);
 		PRINTER(" ");
 		PRINTER(line);
 
@@ -35,9 +36,11 @@ int history_dis(__attribute__((unused))char **c, __attribute__((unused))int s)
 	fclose(fp);
 	return (0);
 }
+
 /**
  * print_echo - Excute Normal Echo
  * @cmd: Parsed Command
+
  * Return: 0 Succes -1 Fail
  */
 int print_echo(char **cmd)
@@ -66,12 +69,12 @@ int print_echo(char **cmd)
 	}
 	return (1);
 }
-#include "shell.h"
 
 /**
 * _getline - Read The Input By User From Stdin
 * Return: Input
 */
+
 char *_getline()
 {
 int i, buffsize = BUFSIZE, rd;
@@ -116,17 +119,18 @@ char *buff = malloc(buffsize);
 /**
  * hashtag_handle - remove everything after #
  * @buff: input;
+
  * Return:void
  */
 void hashtag_handle(char *buff)
 {
-	int i;
+	int j;
 
-		for (i = 0; buff[i] != '\0'; i++)
+		for (j = 0; buff[j] != '\0'; j++)
 		{
-			if (buff[i] == '#')
+			if (buff[j] == '#')
 			{
-			buff[i] = '\0';
+			buff[j] = '\0';
 			break;
 			}
 	}

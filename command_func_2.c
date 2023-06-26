@@ -3,6 +3,7 @@
 /**
  * path_cmd -  Search In $PATH For Excutable Command
  * @cmd: Parsed Input
+ *
  * Return: 1  Failure  0  Success.
  */
 int path_cmd(char **cmd)
@@ -29,6 +30,7 @@ int path_cmd(char **cmd)
 
 	return (1);
 }
+
 /**
  * build - Build Command
  * @token: Excutable Command
@@ -56,9 +58,11 @@ char *build(char *token, char *value)
 
 	return (cmd);
 }
+
 /**
  * _getenv - Gets The Value Of Enviroment Variable By Name
  * @name: Environment Variable Name
+ *
  * Return: The Value of the Environment Variable Else NULL.
  */
 char *_getenv(char *name)
@@ -98,6 +102,7 @@ char *_getenv(char *name)
 /**
  * parse_cmd - Parse Line Of Input
  * @input:User Input To Parse
+ *
  * Return: Array Of Char (Parsed):Simple Shell
  */
 char **parse_cmd(char *input)
@@ -131,11 +136,12 @@ char **parse_cmd(char *input)
  * @line: Line From A File
  * @cmd: Parsed Command
  * @fd:File Descriptor
+ *
  * Return : Case Of Exit in A File Line
  */
 void exit_bul_for_file(char **cmd, char *line, FILE *fd)
 {
-	int statue, i = 0;
+	int statue, x = 0;
 
 	if (cmd[1] == NULL)
 	{
@@ -144,9 +150,9 @@ void exit_bul_for_file(char **cmd, char *line, FILE *fd)
 		fclose(fd);
 		exit(errno);
 	}
-	while (cmd[1][i])
+	while (cmd[1][x])
 	{
-		if (_isalpha(cmd[1][i++]) < 0)
+		if (_isalpha(cmd[1][x++]) < 0)
 		{
 			perror("illegal number");
 		}
@@ -156,7 +162,4 @@ void exit_bul_for_file(char **cmd, char *line, FILE *fd)
 	free(cmd);
 	fclose(fd);
 	exit(statue);
-
-
-
 }

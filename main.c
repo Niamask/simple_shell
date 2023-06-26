@@ -4,13 +4,14 @@
  * main - Simple Shell (Hsh)
  * @argc: Argument Count
  * @argv:Argument Value
+ *
  * Return: Exit Value By Status
  */
 
 int main(__attribute__((unused)) int argc, char **argv)
 {
 	char *input, **cmd;
-	int counter = 0, statue = 1, st = 0;
+	int counter = 0, statue = 1, stt = 0;
 
 	if (argv[1] != NULL)
 		read_file(argv[1], argv);
@@ -25,7 +26,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 		{
 			continue;
 		}
-		history(input);
+		history_func(input);
 		cmd = parse_cmd(input);
 		if (_strcmp(cmd[0], "exit") == 0)
 		{
@@ -33,23 +34,24 @@ int main(__attribute__((unused)) int argc, char **argv)
 		}
 		else if (check_builtin(cmd) == 0)
 		{
-			st = handle_builtin(cmd, st);
+			stt = handle_builtin(cmd, stt);
 			free_all(cmd, input);
 			continue;
 		}
 		else
 		{
-			st = check_cmd(cmd, input, counter, argv);
+			stt = check_cmd(cmd, input, counter, argv);
 
 		}
 		free_all(cmd, input);
 	}
 	return (statue);
 }
+
 /**
  * check_builtin - check builtin
- *
  * @cmd:command to check
+ *
  * Return: 0 Succes -1 Fail
  */
 int check_builtin(char **cmd)
@@ -75,12 +77,14 @@ int check_builtin(char **cmd)
 	}
 	return (-1);
 }
+
 /**
- * creat_envi - Creat Array of Enviroment Variable
+ * creat_envi_func - Creat Array of Enviroment Variable
  * @envi: Array of Enviroment Variable
+ *
  * Return: Void
  */
-void creat_envi(char **envi)
+void creat_envi_func(char **envi)
 {
 	int i;
 

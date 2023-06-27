@@ -33,7 +33,6 @@ len2 = _strlen(s2);
 /**
  * _isalpha - Check if Alphabtic
  *@c: Character
-
  * Return: 1 If True 0 If Not
  */
 int _isalpha(int c)

@@ -97,7 +97,6 @@ size_t i;
  * display_help - Displaying Help For Builtin
  * @cmd:Parsed Command
  * @er: Statue Of Last Command Excuted
-
  * Return: 0 Succes -1 Fail
  */
 int display_help(char **cmd, __attribute__((unused))int er)
@@ -128,7 +127,6 @@ int display_help(char **cmd, __attribute__((unused))int er)
  * echo_bul - Excute Echo Cases
  * @st:Statue Of Last Command Excuted
  * @cmd: Parsed Command
-
  * Return: Always 0 Or Excute Normal Echo
  */
 int echo_bul(char **cmd, int st)

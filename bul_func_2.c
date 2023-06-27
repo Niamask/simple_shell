@@ -40,7 +40,6 @@ int history_dis(__attribute__((unused))char **c, __attribute__((unused))int s)
 /**
  * print_echo - Excute Normal Echo
  * @cmd: Parsed Command
-
  * Return: 0 Succes -1 Fail
  */
 int print_echo(char **cmd)
@@ -119,7 +118,6 @@ char *buff = malloc(buffsize);
 /**
  * hashtag_handle - remove everything after #
  * @buff: input;
-
  * Return:void
  */
 void hashtag_handle(char *buff)

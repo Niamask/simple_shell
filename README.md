@@ -75,5 +75,5 @@ hsh main.c shell.c test_ls_2
 hsh main.c shell.c test_ls_2
 $
 ```
-## Authors
+## Author
 [Niama SKAY](https://github.com/Niamask?tab=overview&from=2023-06-01&to=2023-06-26)
